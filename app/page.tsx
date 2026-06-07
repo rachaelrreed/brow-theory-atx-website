@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import LeadCapture from "@/components/sections/LeadCapture";
 import WhyRachael from "@/components/sections/WhyRachael";
 import Gallery from "@/components/sections/Gallery";
+import RealResults from "@/components/sections/RealResults";
 import CandidateChecklist from "@/components/sections/CandidateChecklist";
 import WhatToExpect from "@/components/sections/WhatToExpect";
 import FAQ from "@/components/sections/FAQ";
@@ -20,6 +21,7 @@ export default function Home() {
         <LeadCapture />
         <WhyRachael />
         <Gallery />
+        <RealResults />
         <CandidateChecklist />
         <WhatToExpect />
         <FAQ />
