@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* ─── Brand tokens (2025 brand guide) ───
+   Ivory      #F4F2EE  primary background
+   Bone       #E7E3DD  secondary background / cards
+   Taupe      #8A7A6A  secondary text / accents
+   Muted Gold #C4A46A  CTAs / icons
+   Charcoal   #2B2B2B  primary text / headings
+   Semantic names below keep Tailwind classes stable site-wide.
+─── */
+:root {
+  --color-ink: #2b2b2b;
+  --color-umber: #8a7a6a;
+  --color-gold: #c4a46a;
+  --color-sand: #e7e3dd;
+  --color-bone: #f4f2ee;
+
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+  --font-accent: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-umber: var(--color-umber);
+  --color-gold: var(--color-gold);
+  --color-sand: var(--color-sand);
+  --color-bone: var(--color-bone);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-accent: var(--font-accent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  font-weight: 500;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-padding {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  padding-inline: clamp(1.25rem, 5vw, 2rem);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 600ms ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 600ms ease-out 200ms both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 600ms ease-out 400ms both;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media print {
+  nav,
+  footer,
+  header {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

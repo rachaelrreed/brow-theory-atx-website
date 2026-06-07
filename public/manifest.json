@@ -1,0 +1,24 @@
+{
+  "name": "Brow Theory ATX",
+  "short_name": "Brow Theory",
+  "description": "Powder brows and permanent makeup by Rachael Reed, RN, BSN in Austin, Texas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F2EE",
+  "theme_color": "#F4F2EE",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/crosshair-micro.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/crosshair-gold.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
