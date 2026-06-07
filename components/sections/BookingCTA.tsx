@@ -26,7 +26,7 @@ export default function BookingCTA() {
         <p className="font-body text-sand mb-10 max-w-lg mx-auto">{locationLine}</p>
 
         <a
-          href={SITE.bookingUrl}
+          href={SITE.bookingPath}
           className="inline-block bg-gold text-ink font-accent uppercase tracking-[0.1em] px-12 py-[1.125rem] hover:opacity-90 transition-opacity"
         >
           Book Your Appointment

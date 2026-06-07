@@ -10,7 +10,7 @@ const goodCandidates = [
   "Not currently pregnant or breastfeeding",
   "No active skin conditions in the treatment area",
   "Not on blood thinners or photosensitizing medications",
-  "No chemical peels, retinoids, or Botox in the brow area within the required timeframe",
+  "No chemical peels, retinoids, or Botox in the brow area within 2 weeks prior",
 ];
 
 const notAFit = [
@@ -91,7 +91,7 @@ export default function CandidateChecklist() {
         <div className="text-center">
           <p className="font-body text-ink mb-4">Think you&apos;re a good candidate?</p>
           <a
-            href={SITE.bookingUrl}
+            href={SITE.bookingPath}
             className="inline-block bg-gold text-ink font-body font-medium uppercase tracking-[0.08em] px-10 py-4 hover:opacity-90 transition-opacity"
           >
             Book a Consultation

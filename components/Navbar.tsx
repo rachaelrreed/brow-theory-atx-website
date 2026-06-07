@@ -11,7 +11,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ variant = "default" }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(variant === "default");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isOverHero = variant === "hero" && !scrolled;
@@ -78,7 +78,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
               </Link>
             ))}
             <a
-              href={SITE.bookingUrl}
+              href={SITE.bookingPath}
               className="bg-gold text-ink font-accent text-sm px-6 py-2.5 uppercase tracking-wide hover:opacity-90 transition-opacity"
             >
               Book Now
@@ -157,7 +157,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
             </Link>
           ))}
           <a
-            href={SITE.bookingUrl}
+            href={SITE.bookingPath}
             onClick={closeMenu}
             className="mt-4 inline-block bg-gold text-ink font-accent text-sm px-8 py-3 uppercase tracking-wide text-center hover:opacity-90 transition-opacity"
           >

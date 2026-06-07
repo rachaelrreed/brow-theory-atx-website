@@ -1,32 +1,30 @@
 import { SITE } from "@/lib/constants";
-import SectionHeader from "@/components/ui/SectionHeader";
-import Button from "@/components/ui/Button";
 
 export default function Testimonials() {
   const hasReviews = false;
 
   return (
     <section id="testimonials" className="bg-bone section-padding">
-      <div className="container-wide">
-        <SectionHeader
-          title="Client Stories"
-          subtitle="New Austin clients — be among the first to share your experience."
-        />
+      <div className="container-narrow text-center">
+        <p className="font-accent text-xs uppercase tracking-[0.14em] text-gold mb-8">
+          Client Stories
+        </p>
 
         {hasReviews ? null : (
-          <div className="max-w-xl mx-auto bg-sand p-10 text-center">
-            <p className="font-display italic text-xl text-ink mb-4 leading-relaxed">
-              Reviews from Austin clients will appear here as they are collected
-              after touch-up appointments.
-            </p>
-            <p className="font-body text-sm text-umber mb-8">
-              Follow {SITE.instagramHandle} for real results and healing
-              timelines while we build our local community.
-            </p>
-            <Button href={SITE.bookingUrl} variant="primary">
-              Book Your Consultation
-            </Button>
-          </div>
+          <>
+            <blockquote className="font-display italic text-[clamp(1.5rem,3vw,2.25rem)] text-ink leading-snug max-w-2xl mx-auto mb-8">
+              New Austin clients — be among the first to share your experience.
+            </blockquote>
+
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-accent text-xs uppercase tracking-[0.12em] text-umber hover:text-gold transition-colors"
+            >
+              Share yours on {SITE.instagramHandle} →
+            </a>
+          </>
         )}
       </div>
     </section>

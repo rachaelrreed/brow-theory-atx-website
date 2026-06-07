@@ -17,32 +17,99 @@ interface GalleryGridProps {
   images: GalleryImage[];
 }
 
+function InstagramPlaceholderTile({ image }: { image: GalleryImage }) {
+  if (!image.instagramUrl) return null;
+
+  return (
+    <a
+      href={image.instagramUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block aspect-square overflow-hidden cursor-pointer bg-sand border border-umber/15"
+    >
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-4 text-center">
+        <InstagramIcon />
+        <span className="font-accent text-[0.65rem] uppercase tracking-[0.14em] text-umber">
+          View on Instagram
+        </span>
+        <span className="font-body text-xs text-ink/70 leading-snug line-clamp-3">
+          {image.alt}
+        </span>
+      </div>
+      <div
+        className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-200"
+        aria-hidden="true"
+      />
+    </a>
+  );
+}
+
+function GalleryTile({ image }: { image: GalleryImage }) {
+  if (!image.src && image.instagramUrl) {
+    return <InstagramPlaceholderTile image={image} />;
+  }
+
+  if (!image.src) return null;
+
+  const imageEl = (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      src={image.src}
+      alt={image.alt}
+      loading="lazy"
+      decoding="async"
+      className="w-full h-full object-cover block"
+    />
+  );
+
+  const hoverOverlay = image.instagramUrl ? (
+    <div
+      className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
+      aria-hidden="true"
+    >
+      <InstagramIcon />
+    </div>
+  ) : (
+    <div
+      className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
+      aria-hidden="true"
+    >
+      <span className="font-accent text-xs uppercase tracking-[0.12em] text-white">
+        Before &amp; After
+      </span>
+    </div>
+  );
+
+  if (image.instagramUrl) {
+    return (
+      <a
+        href={image.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block aspect-square overflow-hidden cursor-pointer"
+      >
+        {imageEl}
+        {hoverOverlay}
+      </a>
+    );
+  }
+
+  return (
+    <figure className="group relative block aspect-square overflow-hidden">
+      {imageEl}
+      {hoverOverlay}
+    </figure>
+  );
+}
+
 export default function GalleryGrid({ images }: GalleryGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-      {images.map((image) => (
-        <a
-          key={`${image.src}-${image.instagramUrl}`}
-          href={image.instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative block aspect-square overflow-hidden cursor-pointer"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image.src}
-            alt={image.alt}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover block"
-          />
-          <div
-            className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
-            aria-hidden="true"
-          >
-            <InstagramIcon />
-          </div>
-        </a>
+      {images.map((image, index) => (
+        <GalleryTile
+          key={image.src ?? image.instagramUrl ?? index}
+          image={image}
+        />
       ))}
     </div>
   );

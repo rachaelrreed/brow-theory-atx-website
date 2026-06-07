@@ -11,18 +11,21 @@ export const SITE = {
   tagline: "Nurse-trained • Natural results • Austin, Texas",
   location: "Austin, Texas",
   medSpa: "Saving Face Med Spa",
+  /** On-brand booking link — redirects to Peek via /book */
+  bookingPath: "/book",
   bookingUrl: "https://book.peek.com/browtheoryatx",
   instagram: "https://www.instagram.com/browtheoryatx",
   instagramHandle: "@browtheoryatx",
   email: "hello@browtheoryatx.com",
-  phone: "405-249-9952",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://browtheoryatx.com",
+  phone: "",
+  url: "https://browtheoryatx.com",
   formspreeUrl: "https://formspree.io/f/mbdeggyb",
   logos: {
     lockup: "/logo.png",
     lockupWhite: "/logo-white-strip.png",
     monogram: "/monogram.svg",
   },
+  ogImage: "/og-image.jpg",
 } as const;
 
 /** Primary navigation — labels match homepage section IDs. */

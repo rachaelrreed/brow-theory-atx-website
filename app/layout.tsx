@@ -28,6 +28,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  alternates: {
+    canonical: SITE.url,
+  },
   title: {
     default: SEO.title,
     template: `%s | ${SITE.name}`,
@@ -44,10 +47,11 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     images: [
       {
-        url: "/og-image.jpg",
+        url: SITE.ogImage,
         width: 1200,
         height: 630,
         alt: "Brow Theory ATX — Powder Brows Austin",
+        type: "image/jpeg",
       },
     ],
     locale: "en_US",
@@ -57,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SEO.openGraphTitle,
     description: SEO.openGraphDescription,
-    images: ["/og-image.jpg"],
+    images: [SITE.ogImage],
   },
   robots: {
     index: true,
@@ -125,7 +129,7 @@ function JsonLd() {
       addressCountry: "US",
     },
     priceRange: "$$",
-    image: `${SITE.url}/og-image.jpg`,
+    image: `${SITE.url}${SITE.ogImage}`,
     sameAs: [SITE.instagram],
     founder: {
       "@type": "Person",

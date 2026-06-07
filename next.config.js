@@ -11,6 +11,21 @@ const nextConfig = {
       { protocol: "https", hostname: "scontent.cdninstagram.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/book",
+        destination: "https://book.peek.com/browtheoryatx",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.browtheoryatx.com" }],
+        destination: "https://browtheoryatx.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

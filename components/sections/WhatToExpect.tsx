@@ -4,17 +4,19 @@ import { useState } from "react";
 
 const phases = [
   {
+    numeral: "I",
     title: "Before Your Appointment",
     items: [
       "Avoid blood thinners (aspirin, ibuprofen, fish oil) for 1 week prior",
       "No alcohol 24 hours before",
       "No retinoids or exfoliants on the brow area for 2 weeks prior",
-      "No Botox in the forehead for the required timeframe prior",
+      "No Botox in the forehead for 2 weeks prior",
       "Arrive with clean skin — no makeup on brows",
       "Avoid sun exposure and tanning for 2 weeks prior",
     ],
   },
   {
+    numeral: "II",
     title: "The Day Of",
     items: [
       "Appointment duration: approximately 2–3 hours",
@@ -25,6 +27,7 @@ const phases = [
     ],
   },
   {
+    numeral: "III",
     title: "The Healing Timeline",
     items: [
       "Days 1–3: Dark, slightly raised",
@@ -50,18 +53,27 @@ export default function WhatToExpect() {
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {phases.map((phase, index) => (
             <div key={phase.title} className="relative">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gold text-ink font-body text-sm font-medium shrink-0">
-                  {index + 1}
+              <div className="mb-6">
+                <div className="w-10 h-px bg-gold mb-4" aria-hidden="true" />
+                <span className="font-display italic text-2xl text-gold">
+                  {phase.numeral}
                 </span>
                 {index < phases.length - 1 && (
-                  <span className="h-px flex-grow bg-umber/30" aria-hidden="true" />
+                  <span
+                    className="absolute top-3 left-[calc(100%+1rem)] hidden lg:block w-[calc(33%-2rem)] h-px bg-umber/20"
+                    aria-hidden="true"
+                  />
                 )}
               </div>
-              <h3 className="font-body font-semibold text-ink mb-4">{phase.title}</h3>
+              <h3 className="font-body font-semibold text-ink mb-4">
+                {phase.title}
+              </h3>
               <ul className="space-y-2">
                 {phase.items.map((item) => (
-                  <li key={item} className="font-body text-sm text-umber leading-relaxed pl-4 border-l border-gold/40">
+                  <li
+                    key={item}
+                    className="font-body text-sm text-umber leading-relaxed pl-4 border-l border-gold/40"
+                  >
                     {item}
                   </li>
                 ))}
@@ -82,13 +94,27 @@ export default function WhatToExpect() {
                   className="w-full flex items-center justify-between p-4 min-h-12 text-left cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-body font-medium text-ink">{phase.title}</span>
-                  <span className={`text-gold transition-transform ${isOpen ? "rotate-180" : ""}`}>▼</span>
+                  <span className="flex items-center gap-3">
+                    <span className="font-display italic text-lg text-gold">
+                      {phase.numeral}
+                    </span>
+                    <span className="font-body font-medium text-ink">
+                      {phase.title}
+                    </span>
+                  </span>
+                  <span
+                    className={`text-gold transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  >
+                    ▼
+                  </span>
                 </button>
                 {isOpen && (
                   <ul className="px-4 pb-4 space-y-2">
                     {phase.items.map((item) => (
-                      <li key={item} className="font-body text-sm text-umber leading-relaxed">
+                      <li
+                        key={item}
+                        className="font-body text-sm text-umber leading-relaxed"
+                      >
                         {item}
                       </li>
                     ))}

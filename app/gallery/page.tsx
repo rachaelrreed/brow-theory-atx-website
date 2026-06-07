@@ -8,7 +8,16 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Before & After Gallery | Brow Theory ATX — Powder Brows Austin TX",
   description:
-    "View before and after powder brow results by Rachael Reed, RN, BSN — permanent makeup artist in Austin, Texas.",
+    "Browse 100+ before and after powder brow results by Rachael Reed, RN, BSN. Nurse-trained permanent makeup in Austin, TX. See real client results.",
+  alternates: {
+    canonical: `${SITE.url}/gallery`,
+  },
+  openGraph: {
+    url: `${SITE.url}/gallery`,
+    title: "Before & After Gallery | Brow Theory ATX",
+    description:
+      "Browse before and after powder brow results by Rachael Reed, RN, BSN in Austin, Texas.",
+  },
 };
 
 export default function GalleryPage() {
@@ -20,11 +29,17 @@ export default function GalleryPage() {
           <h1 className="font-display text-[clamp(2rem,3.5vw,3rem)] text-ink text-center mb-3">
             The Work
           </h1>
-          <p className="font-body text-umber text-center mb-12">
-            Follow {SITE.instagramHandle} for new results weekly
+          <p className="font-body text-umber text-center mb-12 max-w-xl mx-auto">
+            Before and after powder brow permanent makeup by Rachael Reed, RN,
+            BSN — Austin, Texas
           </p>
 
           <GalleryGrid images={galleryImages} />
+
+          <p className="font-body text-xs text-umber text-center mt-10 max-w-2xl mx-auto leading-relaxed">
+            All brow procedures performed by Rachael Reed, RN · Individual results
+            may vary
+          </p>
 
           <div className="text-center mt-12">
             <a
@@ -39,8 +54,8 @@ export default function GalleryPage() {
         </div>
 
         <a
-          href={SITE.bookingUrl}
-          className="fixed bottom-6 right-6 z-40 bg-gold text-ink font-body font-medium uppercase tracking-[0.08em] px-8 py-4 shadow-lg hover:opacity-90 transition-opacity"
+          href={SITE.bookingPath}
+          className="fixed bottom-0 left-0 right-0 z-40 bg-gold text-ink font-accent font-medium uppercase tracking-[0.1em] px-8 py-4 text-center shadow-[0_-4px_24px_rgba(0,0,0,0.12)] hover:opacity-95 transition-opacity md:bottom-6 md:left-auto md:right-6 md:w-auto md:rounded-none"
         >
           Book Now
         </a>

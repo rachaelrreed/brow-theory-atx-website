@@ -9,7 +9,7 @@ const footerNav = [
   { label: "FAQ", href: "/#faq" },
   { label: "Aftercare", href: "/aftercare" },
   { label: "Privacy", href: "/privacy" },
-  { label: "Book", href: SITE.bookingUrl, external: true },
+  { label: "Book", href: SITE.bookingPath },
 ] as const;
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -148,15 +148,17 @@ export default function Footer() {
                 {SITE.email}
               </a>
             </li>
-            <li>
-              <a
-                href={`tel:${SITE.phone.replace(/\D/g, "")}`}
-                className="inline-flex items-center gap-2 font-body text-sm text-ink hover:text-gold transition-colors"
-              >
-                <PhoneIcon className="w-4 h-4 shrink-0" />
-                {SITE.phone}
-              </a>
-            </li>
+            {SITE.phone ? (
+              <li>
+                <a
+                  href={`tel:${SITE.phone.replace(/\D/g, "")}`}
+                  className="inline-flex items-center gap-2 font-body text-sm text-ink hover:text-gold transition-colors"
+                >
+                  <PhoneIcon className="w-4 h-4 shrink-0" />
+                  {SITE.phone}
+                </a>
+              </li>
+            ) : null}
           </ul>
         </div>
       </div>

@@ -14,33 +14,45 @@ export default function Hero() {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-black/45 z-[1]" aria-hidden="true" />
+      {/* Softens photo; panel carries primary contrast */}
+      <div
+        className="absolute inset-0 bg-ink/25 z-[1]"
+        aria-hidden="true"
+      />
 
-      <div className="relative z-[2] flex flex-col items-center justify-center h-full text-center px-6">
-        <h1 className="font-display italic text-white text-[clamp(3rem,6vw,6rem)] font-normal mb-6 max-w-4xl text-balance animate-fade-up">
-          Nurse-trained precision. Permanent results.
-        </h1>
+      <div className="relative z-[2] flex items-center justify-center h-full px-5 sm:px-6">
+        <div className="w-full max-w-3xl bg-bone border border-sand/80 shadow-[0_8px_40px_rgba(43,43,43,0.12)] px-8 py-10 sm:px-12 sm:py-14 text-center animate-fade-up">
+          {/* Brand accent line */}
+          <div
+            className="w-12 h-px bg-gold mx-auto mb-8"
+            aria-hidden="true"
+          />
 
-        <p className="font-body text-lg text-white/85 max-w-[560px] mb-10 animate-fade-up-delay-1">
-          Medical micropigmentation by Rachael Reed, RN, BSN — a registered
-          nurse with a decade of high-acuity clinical experience. Now in{" "}
-          {SITE.location}.
-        </p>
+          <h1 className="font-display italic text-ink text-[clamp(2.25rem,5.5vw,4.5rem)] font-normal leading-[1.1] mb-5 text-balance">
+            Nurse-trained precision. Permanent results.
+          </h1>
 
-        <div className="flex flex-col sm:flex-row items-center gap-6 animate-fade-up-delay-2">
-          <a
-            href={SITE.bookingUrl}
-            id="booking"
-            className="bg-gold text-ink font-body font-medium uppercase tracking-[0.08em] px-10 py-4 hover:opacity-90 transition-opacity"
-          >
-            Book Your Consultation
-          </a>
-          <Link
-            href="/#gallery"
-            className="font-body text-white hover:text-gold transition-colors"
-          >
-            See the Work ↓
-          </Link>
+          <p className="font-body text-umber text-base sm:text-lg max-w-[520px] mx-auto mb-9 leading-relaxed animate-fade-up-delay-1">
+            Medical micropigmentation by Rachael Reed, RN, BSN — a registered
+            nurse with a decade of high-acuity clinical experience. Now in{" "}
+            {SITE.location}.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-fade-up-delay-2">
+            <a
+              href={SITE.bookingPath}
+              id="booking"
+              className="w-full sm:w-auto bg-gold text-ink font-accent uppercase tracking-[0.08em] px-10 py-4 hover:opacity-90 transition-opacity text-center"
+            >
+              Book Your Consultation
+            </a>
+            <Link
+              href="/#gallery"
+              className="font-accent text-xs uppercase tracking-[0.1em] text-ink hover:text-gold transition-colors"
+            >
+              See the Work ↓
+            </Link>
+          </div>
         </div>
       </div>
     </section>
