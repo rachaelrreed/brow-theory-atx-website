@@ -18,7 +18,7 @@ export const SITE = {
   instagramHandle: "@browtheoryatx",
   email: "hello@browtheoryatx.com",
   phone: "" as string,
-  url: "https://browtheoryatx.com",
+  url: "https://www.browtheoryatx.com",
   formspreeUrl: "https://formspree.io/f/mbdeggyb",
   logos: {
     lockup: "/logo.png",

@@ -78,10 +78,17 @@ export default function PrivacyPage() {
                 <a href={`mailto:${SITE.email}`} className="text-ink underline hover:text-gold">
                   {SITE.email}
                 </a>
-                <br />
-                <a href={`tel:${SITE.phone.replace(/\D/g, "")}`} className="text-ink underline hover:text-gold">
-                  {SITE.phone}
-                </a>
+                {SITE.phone ? (
+                  <>
+                    <br />
+                    <a
+                      href={`tel:${SITE.phone.replace(/\D/g, "")}`}
+                      className="text-ink underline hover:text-gold"
+                    >
+                      {SITE.phone}
+                    </a>
+                  </>
+                ) : null}
                 <br />
                 <a
                   href={SITE.instagram}

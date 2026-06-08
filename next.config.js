@@ -18,12 +18,6 @@ const nextConfig = {
         destination: "https://book.peek.com/browtheoryatx",
         permanent: true,
       },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.browtheoryatx.com" }],
-        destination: "https://browtheoryatx.com/:path*",
-        permanent: true,
-      },
     ];
   },
 };
