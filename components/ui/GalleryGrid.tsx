@@ -1,9 +1,11 @@
 import type { GalleryImage } from "@/lib/gallery-data";
+import { GALLERY_INSTAGRAM_URL } from "@/lib/gallery-data";
+import { SITE } from "@/lib/constants";
 
-function InstagramIcon() {
+function InstagramIcon({ className = "w-8 h-8 text-white" }: { className?: string }) {
   return (
     <svg
-      className="w-8 h-8 text-white"
+      className={className}
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
@@ -17,36 +19,29 @@ interface GalleryGridProps {
   images: GalleryImage[];
 }
 
-function InstagramPlaceholderTile({ image }: { image: GalleryImage }) {
-  if (!image.instagramUrl) return null;
-
+function ProfileLinkTile({ image }: { image: GalleryImage }) {
   return (
     <a
-      href={image.instagramUrl}
+      href={GALLERY_INSTAGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block aspect-square overflow-hidden cursor-pointer bg-sand border border-umber/15"
+      className="group relative flex aspect-square cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden border border-umber/20 bg-sand px-4 text-center transition-colors hover:bg-bone"
+      aria-label={`Follow ${SITE.instagramHandle} on Instagram`}
     >
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-4 text-center">
-        <InstagramIcon />
-        <span className="font-accent text-[0.65rem] uppercase tracking-[0.14em] text-umber">
-          View on Instagram
-        </span>
-        <span className="font-body text-xs text-ink/70 leading-snug line-clamp-3">
-          {image.alt}
-        </span>
-      </div>
-      <div
-        className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-200"
-        aria-hidden="true"
-      />
+      <InstagramIcon className="h-8 w-8 text-umber transition-colors group-hover:text-gold" />
+      <span className="font-accent text-[0.65rem] uppercase tracking-[0.14em] text-ink">
+        {SITE.instagramHandle}
+      </span>
+      <span className="font-body text-xs leading-snug text-umber line-clamp-3">
+        {image.alt}
+      </span>
     </a>
   );
 }
 
 function GalleryTile({ image }: { image: GalleryImage }) {
-  if (!image.src && image.instagramUrl) {
-    return <InstagramPlaceholderTile image={image} />;
+  if (image.linkToProfile && !image.src) {
+    return <ProfileLinkTile image={image} />;
   }
 
   if (!image.src) return null;
@@ -62,14 +57,7 @@ function GalleryTile({ image }: { image: GalleryImage }) {
     />
   );
 
-  const hoverOverlay = image.instagramUrl ? (
-    <div
-      className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
-      aria-hidden="true"
-    >
-      <InstagramIcon />
-    </div>
-  ) : (
+  const hoverOverlay = (
     <div
       className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
       aria-hidden="true"
@@ -79,20 +67,6 @@ function GalleryTile({ image }: { image: GalleryImage }) {
       </span>
     </div>
   );
-
-  if (image.instagramUrl) {
-    return (
-      <a
-        href={image.instagramUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative block aspect-square overflow-hidden cursor-pointer"
-      >
-        {imageEl}
-        {hoverOverlay}
-      </a>
-    );
-  }
 
   return (
     <figure className="group relative block aspect-square overflow-hidden">
@@ -104,12 +78,9 @@ function GalleryTile({ image }: { image: GalleryImage }) {
 
 export default function GalleryGrid({ images }: GalleryGridProps) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
       {images.map((image, index) => (
-        <GalleryTile
-          key={image.src ?? image.instagramUrl ?? index}
-          image={image}
-        />
+        <GalleryTile key={image.src ?? `profile-${index}`} image={image} />
       ))}
     </div>
   );

@@ -48,9 +48,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: SITE.ogImage,
+        secureUrl: `${SITE.url}${SITE.ogImage}`,
         width: 1200,
         height: 630,
-        alt: "Brow Theory ATX — Powder Brows Austin",
+        alt: `${SITE.name} — Nurse-trained powder brows in Austin, TX by Rachael Reed, RN, BSN`,
         type: "image/jpeg",
       },
     ],
@@ -61,7 +62,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SEO.openGraphTitle,
     description: SEO.openGraphDescription,
-    images: [SITE.ogImage],
+    images: {
+      url: SITE.ogImage,
+      alt: `${SITE.name} — Powder Brows Austin`,
+    },
   },
   robots: {
     index: true,

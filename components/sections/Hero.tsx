@@ -6,51 +6,61 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] min-h-[600px] overflow-hidden bg-ink"
+      className="relative min-h-[100svh] min-h-[640px] overflow-hidden bg-ink"
     >
       <Image
         src="/images/hero.jpg"
-        alt="Permanent makeup procedure at Brow Theory ATX, Austin Texas"
+        alt="Rachael Reed performing powder brow permanent makeup in Austin, Texas"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-[72%_28%] sm:object-[68%_30%]"
         sizes="100vw"
       />
 
-      {/* Darkens photo so the bone panel and CTAs read clearly */}
+      {/* Left scrim — text only; face stays visible on the right */}
       <div
-        className="absolute inset-0 bg-ink/40 z-[1]"
+        className="absolute inset-0 z-[1] bg-gradient-to-r from-ink/92 via-ink/72 to-transparent md:from-ink/88 md:via-ink/45 md:to-transparent"
         aria-hidden="true"
       />
 
-      <div className="relative z-[2] flex min-h-[100svh] min-h-[600px] items-center justify-center px-5 pb-10 pt-28 sm:px-6 sm:pt-32">
-        <div className="w-full max-w-3xl bg-bone px-8 py-10 text-center shadow-[0_8px_40px_rgba(43,43,43,0.18)] sm:px-12 sm:py-14">
+      {/* Mobile: extra bottom scrim so CTAs read over client area */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/2 z-[1] bg-gradient-to-t from-ink/75 to-transparent md:hidden"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-[2] container-wide flex min-h-[100svh] min-h-[640px] items-end px-6 pb-14 pt-28 sm:px-8 sm:pb-16 md:items-center md:pb-0 md:pt-32">
+        <div className="w-full max-w-xl md:max-w-[34rem]">
           <div
-            className="mx-auto mb-8 h-px w-12 bg-gold"
+            className="mb-6 h-px w-12 bg-gold md:mb-8"
             aria-hidden="true"
           />
 
-          <h1 className="font-display text-[clamp(2.25rem,5.5vw,4.5rem)] font-normal italic leading-[1.1] text-ink mb-5 text-balance">
-            Nurse-trained precision. Permanent results.
-          </h1>
-
-          <p className="font-body text-base sm:text-lg text-umber max-w-[520px] mx-auto mb-9 leading-relaxed">
-            Medical micropigmentation by Rachael Reed, RN, BSN — a registered
-            nurse with a decade of high-acuity clinical experience. Now in{" "}
-            {SITE.location}.
+          <p className="font-accent mb-4 text-[0.65rem] uppercase tracking-[0.18em] text-gold sm:text-xs">
+            {SITE.name} · {SITE.location}
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+          <h1 className="font-display mb-5 text-[clamp(2rem,5vw,3.75rem)] font-normal italic leading-[1.08] text-bone text-balance">
+            Nurse-trained precision.
+            <br className="hidden sm:block" /> Permanent results.
+          </h1>
+
+          <p className="font-body mb-8 max-w-md text-base leading-relaxed text-sand/95 sm:text-lg sm:mb-10">
+            Medical micropigmentation by Rachael Reed, RN, BSN — a registered
+            nurse with a decade of high-acuity clinical experience.
+          </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
             <a
               href={SITE.bookingPath}
               id="booking"
-              className="w-full bg-gold px-10 py-4 text-center font-accent uppercase tracking-[0.08em] text-ink shadow-[0_2px_12px_rgba(196,164,106,0.35)] transition-opacity hover:opacity-90 sm:w-auto"
+              className="inline-flex min-h-12 w-full items-center justify-center bg-gold px-8 py-4 text-center font-accent text-sm uppercase tracking-[0.1em] text-ink shadow-[0_4px_20px_rgba(196,164,106,0.45)] transition-opacity hover:opacity-90 sm:w-auto sm:px-10"
             >
               Book Your Consultation
             </a>
             <Link
               href="/#gallery"
-              className="font-accent text-xs uppercase tracking-[0.1em] text-ink underline-offset-4 hover:text-gold hover:underline"
+              className="inline-flex min-h-12 items-center justify-center font-accent text-xs uppercase tracking-[0.12em] text-bone/90 underline-offset-4 transition-colors hover:text-gold hover:underline sm:justify-start"
             >
               See the Work ↓
             </Link>

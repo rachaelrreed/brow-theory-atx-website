@@ -25,7 +25,7 @@ export const SITE = {
     lockupWhite: "/logo-white-strip.png",
     monogram: "/monogram.svg",
   },
-  ogImage: "/og-image.jpg",
+  ogImage: "/og-image.jpg?v=3",
 } as const;
 
 /** Primary navigation — labels match homepage section IDs. */
