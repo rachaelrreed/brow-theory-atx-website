@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 import { SITE } from "@/lib/constants";
 
 export default function Gallery() {
-  const images = getFeaturedGalleryImages(12);
+  const images = getFeaturedGalleryImages();
 
   return (
     <section id="gallery" className="bg-bone section-padding">
