@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BrandLogo from "@/components/ui/BrandLogo";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
 interface NavbarProps {
@@ -33,7 +33,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
     };
   }, [menuOpen]);
 
-  const logoSrc = isOverHero ? SITE.logos.lockupWhite : SITE.logos.lockup;
+  const logoVariant = isOverHero ? "light" : "default";
   const linkClass = isOverHero
     ? "text-white hover:text-gold"
     : "text-ink hover:text-gold";
@@ -51,23 +51,18 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
         }`}
       >
         <nav
-          className="container-wide flex items-center justify-between px-6 py-4 md:px-8"
+          className="container-wide flex items-center justify-between gap-4 px-4 py-4 sm:px-6 md:px-8"
           aria-label="Main navigation"
         >
           <Link
             href="/"
-            className="relative block h-12 w-40 md:h-14 md:w-48 shrink-0"
+            className="min-w-0 shrink-0 py-1 pr-2"
+            aria-label={`${SITE.name} home`}
           >
-            <Image
-              src={logoSrc}
-              alt={`${SITE.name} — powder brows and permanent makeup in ${SITE.location}`}
-              fill
-              className="object-contain object-left"
-              priority
-            />
+            <BrandLogo variant={logoVariant} size="header" />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden shrink-0 items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -79,7 +74,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
             ))}
             <a
               href={SITE.bookingPath}
-              className="bg-gold text-ink font-accent text-sm px-6 py-2.5 uppercase tracking-wide hover:opacity-90 transition-opacity"
+              className="bg-gold px-6 py-2.5 font-accent text-sm uppercase tracking-wide text-ink transition-opacity hover:opacity-90"
             >
               Book Now
             </a>
@@ -87,7 +82,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
 
           <button
             type="button"
-            className="md:hidden flex flex-col justify-center gap-1.5 p-2 min-h-12 min-w-12 cursor-pointer"
+            className="flex min-h-12 min-w-12 shrink-0 cursor-pointer flex-col justify-center gap-1.5 p-2 md:hidden"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             aria-expanded={menuOpen}
@@ -106,7 +101,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
       {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[60] bg-ink/40 transition-opacity duration-300 md:hidden ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={closeMenu}
         aria-hidden="true"
@@ -122,36 +117,27 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-sand">
-          <Link
-            href="/"
-            onClick={closeMenu}
-            className="relative block h-10 w-36"
-          >
-            <Image
-              src={SITE.logos.lockup}
-              alt={SITE.name}
-              fill
-              className="object-contain object-left"
-            />
+        <div className="flex items-center justify-between border-b border-sand px-5 py-5">
+          <Link href="/" onClick={closeMenu} className="min-w-0 py-1">
+            <BrandLogo variant="default" size="header" />
           </Link>
           <button
             type="button"
             onClick={closeMenu}
-            className="font-accent text-xs uppercase tracking-widest text-ink min-h-12 min-w-12 cursor-pointer"
+            className="min-h-12 min-w-12 cursor-pointer font-accent text-xs uppercase tracking-widest text-ink"
             aria-label="Close menu"
           >
             Close
           </button>
         </div>
 
-        <nav className="flex flex-col px-6 py-10 gap-6" aria-label="Mobile links">
+        <nav className="flex flex-col gap-6 px-6 py-10" aria-label="Mobile links">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={closeMenu}
-              className="font-display italic text-3xl text-ink hover:text-gold transition-colors"
+              className="font-display text-3xl italic text-ink transition-colors hover:text-gold"
             >
               {link.label}
             </Link>
@@ -159,7 +145,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
           <a
             href={SITE.bookingPath}
             onClick={closeMenu}
-            className="mt-4 inline-block bg-gold text-ink font-accent text-sm px-8 py-3 uppercase tracking-wide text-center hover:opacity-90 transition-opacity"
+            className="mt-4 inline-block bg-gold px-8 py-3 text-center font-accent text-sm uppercase tracking-wide text-ink transition-opacity hover:opacity-90"
           >
             Book Now
           </a>

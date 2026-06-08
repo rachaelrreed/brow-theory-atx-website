@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BrandLogo from "@/components/ui/BrandLogo";
 import { LEGAL, NAV_LINKS, SITE } from "@/lib/constants";
 
 const footerNav = [
@@ -73,16 +74,10 @@ export default function Footer() {
       <div className="container-wide section-padding grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand column */}
         <div>
-          <Link href="/" className="relative block h-20 w-56 mb-4">
-            <Image
-              src={SITE.logos.lockup}
-              alt={`${SITE.name} logo`}
-              fill
-              className="object-contain object-left"
-            />
+          <Link href="/" className="mb-4 inline-block">
+            <BrandLogo size="footer" />
           </Link>
-          <p className="font-display text-lg text-ink mb-1">{SITE.name}</p>
-          <p className="font-accent text-xs uppercase tracking-[0.12em] text-umber mb-2">
+          <p className="font-accent mb-2 text-xs uppercase tracking-[0.12em] text-umber">
             {SITE.specialty}
           </p>
           <p className="font-body text-sm text-umber mb-2">
