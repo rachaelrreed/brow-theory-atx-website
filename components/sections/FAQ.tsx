@@ -9,9 +9,9 @@ export default function FAQ() {
       <div className="container-wide">
         <SectionHeader title="Frequently Asked Questions" />
         <Accordion items={faqs} />
-        <p className="font-body text-sm text-umber text-center mt-10 max-w-lg mx-auto">
+        <p className="font-body mx-auto mt-10 max-w-lg text-center text-base leading-relaxed text-ink/80 md:text-sm md:text-umber">
           More detail on healing and aftercare is on our{" "}
-          <Link href="/aftercare" className="text-ink underline hover:text-gold">
+          <Link href="/aftercare" className="text-ink underline decoration-ink/30 underline-offset-2 hover:text-gold hover:decoration-gold">
             aftercare page
           </Link>
           .

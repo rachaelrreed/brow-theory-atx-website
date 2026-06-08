@@ -29,14 +29,14 @@ export default function GalleryPage() {
           <h1 className="font-display text-[clamp(2rem,3.5vw,3rem)] text-ink text-center mb-3">
             The Work
           </h1>
-          <p className="font-body text-umber text-center mb-12 max-w-xl mx-auto">
+          <p className="font-body mx-auto mb-12 max-w-xl text-center text-base leading-relaxed text-ink/85 md:text-umber">
             Before and after powder brow permanent makeup by Rachael Reed, RN,
             BSN — Austin, Texas
           </p>
 
           <GalleryGrid images={galleryImages} />
 
-          <p className="font-body text-xs text-umber text-center mt-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-ink/80 md:text-xs md:text-umber">
             All brow procedures performed by Rachael Reed, RN · Individual results
             may vary
           </p>

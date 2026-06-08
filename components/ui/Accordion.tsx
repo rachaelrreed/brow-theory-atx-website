@@ -14,7 +14,7 @@ interface AccordionProps {
 function Chevron({ open }: { open: boolean }) {
   return (
     <svg
-      className={`w-5 h-5 text-gold shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+      className={`h-5 w-5 shrink-0 text-gold transition-transform duration-300 ${open ? "rotate-180" : ""}`}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -34,21 +34,21 @@ export default function Accordion({ items }: AccordionProps) {
   };
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="mx-auto max-w-3xl">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
           <div
             key={item.question}
-            className="border-b border-umber/20 last:border-b-0"
+            className="border-b border-umber/25 last:border-b-0"
           >
             <button
               type="button"
               onClick={() => toggle(index)}
-              className="w-full flex items-center justify-between gap-4 py-4 min-h-12 text-left cursor-pointer"
+              className="flex min-h-[3.25rem] w-full cursor-pointer items-center justify-between gap-4 py-5 text-left md:py-4"
               aria-expanded={isOpen}
             >
-              <span className="font-body text-ink font-medium pr-4">
+              <span className="font-body pr-3 text-base font-medium leading-snug text-ink md:text-[0.9375rem]">
                 {item.question}
               </span>
               <Chevron open={isOpen} />
@@ -58,7 +58,7 @@ export default function Accordion({ items }: AccordionProps) {
               style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
             >
               <div className="overflow-hidden">
-                <p className="font-body text-umber pb-4 pr-8 leading-relaxed">
+                <p className="font-body pb-6 pr-2 text-base leading-[1.75] text-ink/88 md:pb-5 md:pr-8 md:text-[0.9375rem] md:text-umber md:leading-relaxed">
                   {item.answer}
                 </p>
               </div>

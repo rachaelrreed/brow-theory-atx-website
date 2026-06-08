@@ -47,7 +47,7 @@ export default function LeadCapture() {
           <h2 className="font-display text-[1.75rem] text-ink mb-2">
             Be first to know.
           </h2>
-          <p className="font-body text-ink/80">
+          <p className="font-body text-base text-ink/85 md:text-ink/80">
             Join the list for Austin launch updates and early booking access.
           </p>
         </div>

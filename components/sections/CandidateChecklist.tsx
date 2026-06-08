@@ -24,7 +24,7 @@ const notAFit = [
 
 function CheckIcon() {
   return (
-    <svg className="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <svg className="mt-0.5 h-5 w-5 shrink-0 text-gold" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
     </svg>
   );
@@ -32,7 +32,7 @@ function CheckIcon() {
 
 function CautionIcon() {
   return (
-    <svg className="w-5 h-5 text-umber shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <svg className="mt-0.5 h-5 w-5 shrink-0 text-umber" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
     </svg>
   );
@@ -42,25 +42,25 @@ export default function CandidateChecklist() {
   return (
     <section id="candidate-checklist" className="bg-bone section-padding">
       <div className="container-wide">
-        <h2 className="font-display text-[clamp(2rem,3.5vw,3rem)] text-ink text-center mb-6">
+        <h2 className="font-display mb-5 text-center text-[clamp(2rem,3.5vw,3rem)] text-ink md:mb-6">
           Are You a Good Candidate?
         </h2>
 
-        <p className="font-body text-umber text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="font-body mx-auto mb-10 max-w-2xl text-center text-base leading-[1.75] text-ink/88 md:mb-12 md:text-lg md:leading-relaxed md:text-umber">
           As a registered nurse, Rachael Reed screens every client with clinical
           precision before any procedure. Use this guide to determine whether
           powder brows are right for you.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+        <div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
           <div>
-            <h3 className="font-body font-semibold text-ink uppercase tracking-wide text-sm mb-6 flex items-center gap-2">
+            <h3 className="font-body mb-5 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-ink md:mb-6">
               <CheckIcon />
               Good Candidate
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4 md:space-y-3">
               {goodCandidates.map((item) => (
-                <li key={item} className="flex gap-3 font-body text-sm text-umber">
+                <li key={item} className="flex gap-3.5 font-body text-base leading-[1.7] text-ink/88 md:text-sm md:leading-relaxed md:text-umber">
                   <CheckIcon />
                   <span>{item}</span>
                 </li>
@@ -69,13 +69,13 @@ export default function CandidateChecklist() {
           </div>
 
           <div>
-            <h3 className="font-body font-semibold text-ink uppercase tracking-wide text-sm mb-6 flex items-center gap-2">
+            <h3 className="font-body mb-5 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-ink md:mb-6">
               <CautionIcon />
               May Not Be a Fit
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4 md:space-y-3">
               {notAFit.map((item) => (
-                <li key={item} className="flex gap-3 font-body text-sm text-umber">
+                <li key={item} className="flex gap-3.5 font-body text-base leading-[1.7] text-ink/88 md:text-sm md:leading-relaxed md:text-umber">
                   <CautionIcon />
                   <span>{item}</span>
                 </li>
@@ -84,15 +84,17 @@ export default function CandidateChecklist() {
           </div>
         </div>
 
-        <p className="font-body text-xs italic text-umber text-center max-w-2xl mx-auto mb-8">
+        <p className="font-body mx-auto mb-8 max-w-2xl text-center text-sm italic leading-relaxed text-ink/72 md:text-xs md:text-umber">
           {LEGAL.candidateDisclaimer}
         </p>
 
         <div className="text-center">
-          <p className="font-body text-ink mb-4">Think you&apos;re a good candidate?</p>
+          <p className="font-body mb-4 text-base text-ink md:text-[0.9375rem]">
+            Think you&apos;re a good candidate?
+          </p>
           <a
             href={SITE.bookingPath}
-            className="inline-block bg-gold text-ink font-body font-medium uppercase tracking-[0.08em] px-10 py-4 hover:opacity-90 transition-opacity"
+            className="inline-block bg-gold px-10 py-4 font-body text-sm font-medium uppercase tracking-[0.08em] text-ink transition-opacity hover:opacity-90 md:text-[0.8125rem]"
           >
             Book a Consultation
           </a>

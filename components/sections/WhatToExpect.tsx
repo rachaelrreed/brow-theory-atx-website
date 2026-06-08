@@ -91,14 +91,14 @@ export default function WhatToExpect() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="w-full flex items-center justify-between p-4 min-h-12 text-left cursor-pointer"
+                  className="w-full flex min-h-[3.25rem] cursor-pointer items-center justify-between p-4 text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="flex items-center gap-3">
                     <span className="font-display italic text-lg text-gold">
                       {phase.numeral}
                     </span>
-                    <span className="font-body font-medium text-ink">
+                    <span className="font-body text-base font-medium text-ink md:text-[0.9375rem]">
                       {phase.title}
                     </span>
                   </span>
@@ -109,11 +109,11 @@ export default function WhatToExpect() {
                   </span>
                 </button>
                 {isOpen && (
-                  <ul className="px-4 pb-4 space-y-2">
+                  <ul className="space-y-3 px-4 pb-5">
                     {phase.items.map((item) => (
                       <li
                         key={item}
-                        className="font-body text-sm text-umber leading-relaxed"
+                        className="font-body text-base leading-[1.7] text-ink/88 md:text-sm md:leading-relaxed md:text-umber"
                       >
                         {item}
                       </li>

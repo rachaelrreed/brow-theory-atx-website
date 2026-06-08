@@ -20,7 +20,7 @@ export default function Testimonials() {
               href={SITE.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block font-accent text-xs uppercase tracking-[0.12em] text-umber hover:text-gold transition-colors"
+              className="inline-block font-accent text-sm uppercase tracking-[0.12em] text-ink/75 transition-colors hover:text-gold md:text-xs md:text-umber"
             >
               Share yours on {SITE.instagramHandle} →
             </a>

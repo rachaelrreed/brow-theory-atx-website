@@ -18,12 +18,12 @@ export default function Gallery() {
 
         <GalleryGrid images={images} />
 
-        <p className="font-body text-xs text-umber text-center mt-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-ink/80 md:mt-8 md:text-xs md:text-umber">
           All brow procedures performed by Rachael Reed, RN · Individual results
           may vary
         </p>
 
-        <p className="font-body text-sm text-umber text-center mt-4">
+        <p className="font-body mt-4 text-center text-base text-ink/80 md:text-sm md:text-umber">
           Follow{" "}
           <a
             href={SITE.instagram}

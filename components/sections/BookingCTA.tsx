@@ -23,7 +23,7 @@ export default function BookingCTA() {
           Ready for brows that last?
         </h2>
 
-        <p className="font-body text-sand mb-10 max-w-lg mx-auto">{locationLine}</p>
+        <p className="font-body mx-auto mb-10 max-w-lg text-base text-sand md:text-[0.9375rem]">{locationLine}</p>
 
         <a
           href={SITE.bookingPath}
@@ -32,7 +32,7 @@ export default function BookingCTA() {
           Book Your Appointment
         </a>
 
-        <p className="font-body text-sm text-sand mt-6">
+        <p className="font-body mt-6 text-base text-sand/95 md:text-sm">
           Have questions first? Reach out on Instagram →{" "}
           <a
             href={SITE.instagram}

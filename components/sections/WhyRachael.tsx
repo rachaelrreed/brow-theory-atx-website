@@ -51,12 +51,12 @@ export default function WhyRachael() {
                 <p className="font-body font-semibold text-ink mb-1">
                   {item.title}
                 </p>
-                <p className="font-body text-sm text-umber">{item.description}</p>
+                <p className="font-body text-base text-ink/85 md:text-sm md:text-umber">{item.description}</p>
               </div>
             ))}
           </div>
 
-          <p className="font-body text-umber leading-relaxed mb-8">
+          <p className="font-body mb-8 text-base leading-[1.75] text-ink/88 md:leading-relaxed md:text-umber">
             A nursing career spent in intensive care and Level 1 trauma means
             understanding skin anatomy, wound healing, and sterile technique at a
             level most aestheticians never reach. That clinical foundation is
@@ -64,7 +64,7 @@ export default function WhyRachael() {
             procedure in Austin.
           </p>
 
-          <blockquote className="font-display italic text-2xl text-umber border-l-2 border-gold pl-5">
+          <blockquote className="font-display border-l-2 border-gold pl-5 text-xl italic text-ink/85 md:text-2xl md:text-umber">
             Permanent makeup should age with you, not against you.
           </blockquote>
         </div>

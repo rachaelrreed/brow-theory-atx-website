@@ -21,10 +21,10 @@ export default function SectionHeader({
         {title}
       </h2>
       {subtitle && (
-        <p className="font-body text-umber text-lg">{subtitle}</p>
+        <p className="font-body text-base text-ink/85 md:text-lg md:text-umber">{subtitle}</p>
       )}
       {note && (
-        <p className="font-body text-umber text-sm mt-2">{note}</p>
+        <p className="font-body mt-2 text-sm leading-relaxed text-ink/80 md:text-sm md:text-umber">{note}</p>
       )}
     </div>
   );
